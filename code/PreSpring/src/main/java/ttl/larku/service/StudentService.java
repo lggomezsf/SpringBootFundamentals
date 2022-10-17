@@ -16,7 +16,8 @@ public class StudentService {
     private BaseDAO<Student> studentDAO;
 
     public StudentService() {
-        studentDAO = new InMemoryStudentDAO();
+//        studentDAO = new InMemoryStudentDAO();
+        int i = 0;
     }
 
     public Student createStudent(String name, String phoneNumber, Status status) {
@@ -55,6 +56,7 @@ public class StudentService {
         return studentDAO;
     }
 
+    //"studentDAO"
     public void setStudentDAO(BaseDAO<Student> studentDAO) {
         this.studentDAO = studentDAO;
     }
