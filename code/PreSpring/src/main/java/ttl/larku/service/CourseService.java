@@ -2,6 +2,9 @@ package ttl.larku.service;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
 
 import ttl.larku.dao.BaseDAO;
@@ -9,11 +12,15 @@ import ttl.larku.dao.MyFactory;
 import ttl.larku.dao.inmemory.InMemoryCourseDAO;
 import ttl.larku.domain.Course;
 
+@Service
 public class CourseService {
 
+    @Autowired
+    @Qualifier("jpaCourseDAO")
     private BaseDAO<Course> courseDAO;
 
     public CourseService() {
+        int i = 0;
     }
 
     public Course createCourse(String code, String title) {
