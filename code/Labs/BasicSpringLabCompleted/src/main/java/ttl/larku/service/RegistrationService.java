@@ -1,9 +1,11 @@
 package ttl.larku.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ttl.larku.domain.ScheduledClass;
 import ttl.larku.domain.Student;
 
+import javax.annotation.PostConstruct;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -12,14 +14,36 @@ import java.util.List;
 public class RegistrationService {
 
     //TODO - something required here
+//    @Autowired
     private CourseService courseService;
+//    @Autowired
     private StudentService studentService;
+//    @Autowired
     private ClassService classService;
 
+    @Autowired
+    public RegistrationService(CourseService courseService, StudentService studentService, ClassService classService) {
+//        courseService = new CourseService();
+//        studentService = new StudentService();
+//        classService = new ClassService();
+
+        this.courseService = courseService;
+        this.studentService = studentService;
+        this.classService = classService;
+
+        int studentCount = studentService.getAllStudents().size();
+        System.out.println("studentCount: " + studentCount);
+    }
+
     public RegistrationService() {
-        courseService = new CourseService();
-        studentService = new StudentService();
-        classService = new ClassService();
+       int i = 0;
+    }
+
+//    @PostConstruct
+    public void init() {
+        int studentCount = studentService.getAllStudents().size();
+        System.out.println("studentCount: " + studentCount);
+
     }
 
 

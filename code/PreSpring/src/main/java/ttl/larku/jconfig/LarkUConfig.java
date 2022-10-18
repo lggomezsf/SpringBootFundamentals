@@ -11,6 +11,7 @@ import ttl.larku.service.StudentService;
 
 @Configuration
 @ComponentScan({"ttl.larku"})
+//@ComponentScan
 public class LarkUConfig {
 
     /*
