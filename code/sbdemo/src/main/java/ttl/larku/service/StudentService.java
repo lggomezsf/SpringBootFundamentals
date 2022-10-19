@@ -10,12 +10,16 @@ public class StudentService {
 
     private BaseDAO<Student> studentDAO;
 
+    int count = 0;
+
     public StudentService() {
     }
 
     private CourseService cs;
 
     public Student createStudent(String name, String phoneNumber, Student.Status status) {
+        count++;
+
         Student student = new Student(name, phoneNumber, status);
         student = createStudent(student);
 
